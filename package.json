@@ -11,8 +11,8 @@
     "type": "git",
     "url": "git+https://github.com/steven2k2/webpack-handlebars.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["webpack", "handlebars", "bootstrap", "sass", "template engine"],
+  "author": "Steven Thompson",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/steven2k2/webpack-handlebars/issues"
