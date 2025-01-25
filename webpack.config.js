@@ -8,6 +8,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].[contenthash].bundle.js', // Cache-busting JS
+        assetModuleFilename: 'images/[hash][ext][query]',
         clean: true,
     },
     devtool: 'source-map', // Adds source maps for better debugging
@@ -20,6 +21,10 @@ module.exports = {
             {
                 test: /\.hbs$/,
                 loader: 'handlebars-loader',
+                options: {
+                    knownHelpersOnly: false,
+                    inlineRequires: '\/assets/images\/'
+                },
             },
             {
                 test: /\.scss$/,
@@ -35,7 +40,12 @@ module.exports = {
                     MiniCssExtractPlugin.loader,
                     'css-loader',
                 ],
-            }
+            },
+            {
+                test: /\.(png|svg|jpg|jpeg|gif|webp)$/i,
+                type: 'asset/resource',
+            },
+
         ],
     },
     plugins: [
