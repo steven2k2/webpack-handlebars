@@ -1,17 +1,19 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-    mode: 'development',
+    mode: process.env.NODE_ENV || 'development', // Dynamic environment mode
     entry: './src/index.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js',
-        clean: true, // Cleans old files on build
+        filename: '[name].[contenthash].bundle.js', // Cache-busting JS
+        clean: true,
     },
+    devtool: 'source-map', // Adds source maps for better debugging
     devServer: {
         static: './dist',
-        open: true, // Automatically opens browser
+        open: true,
     },
     module: {
         rules: [
@@ -21,17 +23,27 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
-                use: ['style-loader', 'css-loader', 'sass-loader'], // Processes Sass files
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    'css-loader',
+                    'sass-loader',
+                ],
             },
             {
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader'],
-            },
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    'css-loader',
+                ],
+            }
         ],
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: './src/index.html', // Injects JS into the HTML
+            template: './src/index.html',
+        }),
+        new MiniCssExtractPlugin({
+            filename: 'assets/css/[name].[contenthash].css', // Organized CSS output
         }),
     ],
 };
