@@ -1,6 +1,13 @@
+/* SCSS HEX */
+$melon: #fec0aaff;
+$flame: #ec4e20ff;
+$olive: #84732bff;
+$drab-dark-brown: #574f2aff;
+$pakistan-green: #1c3a13ff;
+
 // Custom variables
-$primary: #4CAF50;
-$secondary: #9E9E9E;
+$primary: $flame;
+$secondary: $olive;
 
 // Import All of Bootstrap's CSS
 @import "~bootstrap/scss/bootstrap";
