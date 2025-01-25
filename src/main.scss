@@ -1,4 +1,6 @@
 /* SCSS HEX */
+@import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
+
 $melon: #fec0aaff;
 $flame: #ec4e20ff;
 $olive: #84732bff;
@@ -9,5 +11,9 @@ $pakistan-green: #1c3a13ff;
 $primary: $flame;
 $secondary: $olive;
 
+$display-font-family: "Michroma", serif;
+
 // Import All of Bootstrap's CSS
 @import "~bootstrap/scss/bootstrap";
+
+
