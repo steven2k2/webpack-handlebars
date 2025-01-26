@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+</head>
+<body>
+{{> header}}
+<main role="main">
+
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+  <div class="jumbotron mt-5 mb-5">
+    <div class="container">
+      <h1 class="display-3">Multi-page Handlebars + Webpack Site</h1>
+      <p class="lead">{{{description}}}</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-3 d-flex flex-column">
+        <h2>Webpack <span class="text-info">{{versions.webpack}}</span></h2>
+        <p class="lead flex-grow-1">
+          A powerful module bundler that optimises JavaScript, CSS, and assets for both development and production environments. It enables modular development and efficient builds.
+        </p>
+        <p>
+          <a
+              class="btn btn-primary text-light mt-auto"
+              href="https://webpack.js.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              role="button"
+          >
+            View Details
+          </a>
+        </p>
+      </div>
+      <div class="col-md-3 d-flex flex-column">
+        <h2>Handlebars</h2>
+        <p class="lead flex-grow-1">
+          A lightweight templating engine for creating dynamic, reusable HTML templates with placeholders for data. It simplifies template logic and encourages modularity.
+        </p>
+        <p>
+          <a
+              class="btn btn-primary text-light mt-auto"
+              href="https://handlebarsjs.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              role="button"
+          >
+            View Details
+          </a>
+        </p>
+      </div>
+      <div class="col-md-3 d-flex flex-column">
+        <h2>SASS</h2>
+        <p class="lead flex-grow-1">
+          A CSS preprocessor that extends CSS with variables, nesting, and reusable mixins. It simplifies managing styles and customising frameworks like Bootstrap.
+        </p>
+        <p>
+          <a
+              class="btn btn-primary text-light mt-auto"
+              href="https://sass-lang.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              role="button"
+          >
+            View Details
+          </a>
+        </p>
+      </div>
+      <div class="col-md-3 d-flex flex-column">
+        <h2>Bootstrap <span class="text-info">{{versions.bootstrap}}</span></h2>
+        <p class="lead flex-grow-1">
+          A responsive, mobile-first CSS framework that provides pre-styled components and utility classes, allowing developers to build consistent and beautiful UIs quickly.
+        </p>
+        <p>
+          <a
+              class="btn btn-primary text-light mt-auto"
+              href="https://getbootstrap.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              role="button"
+          >
+            View Details
+          </a>
+        </p>
+      </div>
+    </div>
+
+    <hr>
+  </div> <!-- /container -->
+
+</main>
+{{> footer}}
+</body>
+
+

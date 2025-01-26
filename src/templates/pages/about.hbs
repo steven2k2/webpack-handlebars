@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+</head>
+<body>
+{{> header }}
+<main role="main">
+
+<div class="container my-5">
+  <div class="row">
+    <div class="col-12 text-center">
+      <h1 class="display-4">About the Project</h1>
+      <p class="lead">{{{description}}}</p>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <div class="col-md-6">
+      <h2>Features</h2>
+      <ul class="list-group">
+        <li class="list-group-item">Modular JavaScript with Webpack</li>
+        <li class="list-group-item">Handlebars as a templating engine</li>
+        <li class="list-group-item">Bootstrap 5 integration for responsive design</li>
+        <li class="list-group-item">Sass for styling and Bootstrap customisation</li>
+        <li class="list-group-item">Webpack Dev Server for live reloading</li>
+        <li class="list-group-item">Production-ready builds</li>
+      </ul>
+    </div>
+    <div class="col-md-6">
+      <h2>Project Structure</h2>
+      <pre class="bg-light p-3">
+webpack-handlebars/
+├── dist/                  # Output directory
+├── src/                   # Source files
+│   ├── assets/            # Static assets
+│   ├── styles/            # SCSS or CSS styles
+│   ├── js/                # JavaScript files
+│   ├── templates/         # Handlebars templates
+│   └── data/              # JSON or JS data for templates
+├── webpack.config.js      # Webpack configuration
+├── package.json           # Dependencies and scripts
+├── README.md              # Documentation
+      </pre>
+    </div>
+  </div>
+</div>
+</main>
+
+{{> footer }}

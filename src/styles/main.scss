@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
+
+$atomic-tangerine: #f79256ff;
+$sunset: #fbd1a2ff;
+$tiffany-blue: #7dcfb6ff;
+$moonstone: #00b2caff;
+$yinmn-blue: #1d4e89ff;
+
+// Custom variables
+$primary: $atomic-tangerine;
+$secondary: $tiffany-blue;
+
+$info: $moonstone;
+
+$display-font-family: "Michroma", serif;
+
+// Import All of Bootstrap's CSS
+@import "bootstrap";
+
+
