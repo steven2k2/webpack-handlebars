@@ -1,24 +1,26 @@
-name: Deploy to GitHub Pages
+name: Build and Deploy Locally
 
 on:
   push:
     branches:
-      - main  # Trigger on commits to the main branch
+      - main
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
       # Checkout the repository
       - name: Checkout Code
-        uses: actions/checkout@v3
+        run: |
+          git clone $GITHUB_SERVER_URL/$GITHUB_REPOSITORY.git .
+          git fetch
 
-      # Set up Node.js
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16'  # Specify the Node.js version
+      # Set up Node.js locally
+      - name: Install Node.js
+        run: |
+          curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
+          sudo apt-get install -y nodejs
 
       # Install dependencies
       - name: Install Dependencies
@@ -27,10 +29,3 @@ jobs:
       # Build the project
       - name: Build the Project
         run: npm run build
-
-      # Deploy to GitHub Pages
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist  # Specify the output directory
