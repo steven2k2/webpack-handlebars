@@ -1,4 +1,4 @@
-name: Build and Deploy
+name: CI/CD Pipeline for Webpack Handlebars
 
 on:
   push:
@@ -6,26 +6,57 @@ on:
       - main
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout the repository
+      # Step 1: Checkout the repository
       - name: Checkout Code
-        run: |
-          git clone $GITHUB_SERVER_URL/$GITHUB_REPOSITORY.git .
-          git fetch
+        uses: actions/checkout@v3
 
-      # Set up Node.js locally
-      - name: Install Node.js
-        run: |
-          curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
-          sudo apt-get install -y nodejs
+      # Step 2: Setup Node.js environment
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '22'
+          cache: 'npm'
 
-      # Install dependencies
+      # Step 3: Install dependencies
       - name: Install Dependencies
         run: npm install
 
-      # Build the project
+      # Step 4: Lint the codebase
+      - name: Run Linting
+        run: npm run lint
+
+      # Step 5: Run tests with coverage
+      - name: Run Tests with Coverage
+        run: npm test -- --coverage
+
+      # Step 6: Upload coverage report
+      - name: Upload Coverage Report
+        if: always() # Upload even if tests fail
+        uses: actions/upload-artifact@v3
+        with:
+          name: coverage-report
+          path: coverage
+
+      # Step 7: Build the project
       - name: Build the Project
         run: npm run build
+
+      # Step 8: Upload build artifacts
+      - name: Upload Build Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-artifacts
+          path: dist
+
+      # Step 9: Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: dist
+          enable_jekyll: false
+          commit_message: "Deploy from GitHub Actions: ${{ github.sha }} on ${{ github.run_date }}"
