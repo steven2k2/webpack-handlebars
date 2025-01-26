@@ -1,4 +1,4 @@
-name: CI/CD Pipeline for Webpack Handlebars
+name: CI/CD Pipeline for Webpack Handlebars v2
 
 on:
   push:
@@ -10,34 +10,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout the repository
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      # Step 2: Setup Node.js environment
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '22'
           cache: 'npm'
 
-      # Step 3: Install dependencies
       - name: Install Dependencies
         run: npm install
 
-      # Step 4: Build the project
       - name: Build the Project
         run: npm run build
 
-      # Step 5: Upload build artifacts (optional for debugging)
-      - name: Upload Build Artifacts
-        if: failure() # Upload only if the build fails
-        uses: actions/upload-artifact@v3
-        with:
-          name: build-artifacts
-          path: dist
-
-      # Step 6: Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
