@@ -1,4 +1,4 @@
-name: CI/CD Pipeline for Webpack Handlebars v2
+name: CI/CD Pipeline for Webpack Handlebars
 
 on:
   push:
@@ -29,8 +29,9 @@ jobs:
       - name: Build the Project
         run: npm run build
 
-      # Step 5: Upload build artifacts
+      # Step 5: Upload build artifacts (optional for debugging)
       - name: Upload Build Artifacts
+        if: failure() # Upload only if the build fails
         uses: actions/upload-artifact@v3
         with:
           name: build-artifacts
