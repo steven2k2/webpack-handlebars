@@ -1,6 +1,12 @@
 # Webpack Handlebars Demo
 
+
+![screencapture.jpeg](./docs/images/screencapture.jpeg)
+
 This is a demo project that combines **Webpack**, **Handlebars**, and **Bootstrap 5** to create a modular, modern web application setup. It includes Sass for styling and provides a development server for real-time updates.
+
+
+https://steven2k2.github.io/webpack-handlebars/
 
 ## Features
 
