@@ -6,6 +6,17 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 // Utility function to clean version strings
 const getVersion = (pkg) => pkg ? pkg.replace(/^\^/, '') : 'Unknown';
 const copyrightYear = new Date().getFullYear();
+
+const lastUpdated = new Date().toLocaleString("en-au", {
+  weekday: "long",
+  year: "numeric",
+  month: "short",
+  day: "numeric",
+  hour: "2-digit",
+  minute: "2-digit",
+  hour12: true,
+});
+
 const siteName = packageJSON['name'];
 const description = 'This is a demo project that combines <strong>Webpack</strong>, <strong>Handlebars</strong>, and <strong>Bootstrap</strong> to create a modular, modern web application setup.';
 
@@ -76,6 +87,7 @@ module.exports = {
         description: description,
         versions: versions,
         copyrightYear: copyrightYear,
+        lastUpdated: lastUpdated,
       },
 
     }),
@@ -88,6 +100,7 @@ module.exports = {
         description: description,
         versions: versions,
         copyrightYear: copyrightYear,
+        lastUpdated: lastUpdated,
       },
     }),
     new MiniCssExtractPlugin({
