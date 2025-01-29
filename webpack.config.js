@@ -7,15 +7,16 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const getVersion = (pkg) => pkg ? pkg.replace(/^\^/, '') : 'Unknown'
 const copyrightYear = new Date().getFullYear()
 
-const lastUpdated = new Date().toLocaleString('en-au', {
+const lastUpdated = new Intl.DateTimeFormat('en-AU', {
   weekday: 'long',
   year: 'numeric',
   month: 'short',
   day: 'numeric',
   hour: '2-digit',
   minute: '2-digit',
-  hour12: true
-})
+  second: '2-digit',
+  timeZoneName: 'short'
+}).format(new Date());
 
 const siteName = packageJSON.name
 const description = 'This is a demo project that combines <strong>Webpack</strong>, <strong>Handlebars</strong>, and <strong>Bootstrap</strong> to create a modular, modern web application setup.'
