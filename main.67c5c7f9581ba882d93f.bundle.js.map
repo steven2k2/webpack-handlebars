@@ -1,1 +1,1 @@
-{"version":3,"file":"main.67c5c7f9581ba882d93f.bundle.js","mappings":"mBAEAA,QAAQC,IAAI,2B","sources":["webpack://webpack-handlebars/./src/js/index.js"],"sourcesContent":["import '../styles/main.scss';\n\nconsole.log('Welcome to the homepage!');"],"names":["console","log"],"sourceRoot":""}
+{"version":3,"file":"main.67c5c7f9581ba882d93f.bundle.js","mappings":"mBAEAA,QAAQC,IAAI,2B","sources":["webpack://webpack-handlebars/./src/js/index.js"],"sourcesContent":["import '../styles/main.scss'\n\nconsole.log('Welcome to the homepage!')\n"],"names":["console","log"],"sourceRoot":""}
