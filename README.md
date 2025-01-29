@@ -420,11 +420,11 @@ The output will be in the dist/ folder.
 ### 9. Customise
 - Add more Handlebars partials or helpers as needed.
 - Extend Bootstrap using SCSS variables or custom styles.
-  
-- 
-- 
-- 
 - testing: Changed GitHub permissions. CHANGES
+
+---
+
+[![JavaScript Style Guide](https://cdn.rawgit.com/standard/standard/master/badge.svg)](https://github.com/standard/standard)
 
 
 
